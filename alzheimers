@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسابقة معلومات عن الزهايمر</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        .answers input {
+            margin-right: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>مسابقة معلومات عن الزهايمر</h1>
+    <form id="quizForm">
+        <div class="question">
+            <p>1. ما هو مرض الزهايمر؟</p>
+            <div class="answers">
+                <label><input type="radio" name="q1" value="أ"> أ) نوع من السرطان</label><br>
+                <label><input type="radio" name="q1" value="ب"> ب) مرض عصبي يؤثر على الذاكرة والتفكير</label><br>
+                <label><input type="radio" name="q1" value="ج"> ج) مرض قلبي</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>2. ما هي إحدى الأعراض الشائعة لمرض الزهايمر؟</p>
+            <div class="answers">
+                <label><input type="radio" name="q2" value="أ"> أ) فقدان الذاكرة القصيرة الأمد</label><br>
+                <label><input type="radio" name="q2" value="ب"> ب) زيادة الوزن المفاجئ</label><br>
+                <label><input type="radio" name="q2" value="ج"> ج) صداع شديد</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>3. ما هو العمر الشائع لظهور أعراض مرض الزهايمر؟</p>
+            <div class="answers">
+                <label><input type="radio" name="q3" value="أ"> أ) تحت سن 30</label><br>
+                <label><input type="radio" name="q3" value="ب"> ب) من 65 عامًا أو أكثر</label><br>
+                <label><input type="radio" name="q3" value="ج"> ج) بين 40 و50 عامًا</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>4. هل يوجد علاج شافٍ لمرض الزهايمر حاليًا؟</p>
+            <div class="answers">
+                <label><input type="radio" name="q4" value="أ"> أ) نعم</label><br>
+                <label><input type="radio" name="q4" value="ب"> ب) لا</label><br>
+                <label><input type="radio" name="q4" value="ج"> ج) تحت التجربة</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>5. ما هو أحد أساليب الرعاية التي قد تساعد مرضى الزهايمر؟</p>
+            <div class="answers">
+                <label><input type="radio" name="q5" value="أ"> أ) العلاج بالموسيقى</label><br>
+                <label><input type="radio" name="q5" value="ب"> ب) الجراحة</label><br>
+                <label><input type="radio" name="q5" value="ج"> ج) استخدام الأدوية المضادة للفيروسات</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>6. ما هي إحدى الطرق التي يمكن أن تساعد في دعم الأشخاص المصابين بالزهايمر؟</p>
+            <div class="answers">
+                <label><input type="radio" name="q6" value="أ"> أ) التعرف على الحالة وفهمها بشكل أفضل</label><br>
+                <label><input type="radio" name="q6" value="ب"> ب) تجاهل أعراض المرض</label><br>
+                <label><input type="radio" name="q6" value="ج"> ج) تقديم المساعدة فقط عند الحاجة القصوى</label>
+            </div>
+        </div>
+        <button type="button" onclick="checkAnswers()">تحقق من الإجابات</button>
+    </form>
+    <div id="result" class="result"></div>
+
+    <script>
+        function checkAnswers() {
+            var correctAnswers = {
+                q1: 'ب',
+                q2: 'أ',
+                q3: 'ب',
+                q4: 'ب',
+                q5: 'أ',
+                q6: 'أ'
+            };
+
+            var form = document.getElementById('quizForm');
+            var result = document.getElementById('result');
+            var score = 0;
+
+            for (var q in correctAnswers) {
+                var answer = form.querySelector('input[name="' + q + '"]:checked');
+                if (answer && answer.
+				value === correctAnswers[q]) {
+                    score++;
+                }
+            }
+
+            result.innerHTML = 'عدد الإجابات الصحيحة: ' + score + ' من 6';
+        }
+    </script>
+</body>
+</html>
